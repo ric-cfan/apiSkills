@@ -1,0 +1,1 @@
+{"resources":{"Scripts/Script.sql":{"default-schema":"public","default-datasource":"postgres-jdbc-1898ec759d2-4db2bc82585e943e","default-catalog":"sistemaSkill"},"SistemaSkill.sql":{"default-datasource":"postgres-jdbc-1898ec759d2-4db2bc82585e943e","default-catalog":"postgres","default-schema":"public"}}}
