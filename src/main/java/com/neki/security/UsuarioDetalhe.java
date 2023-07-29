@@ -24,6 +24,7 @@ public class UsuarioDetalhe implements UserDetails {
 			authorities.add(new SimpleGrantedAuthority("USER"));
 		return authorities;
 	}
+	
 
 	@Override
 	public String getPassword() {

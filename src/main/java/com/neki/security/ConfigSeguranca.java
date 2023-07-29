@@ -39,18 +39,18 @@ public class ConfigSeguranca extends WebSecurityConfigurerAdapter {
 
 				.antMatchers("/swagger-ui/**", "/login/**", "/v2/api-docs", "/configuration/ui",
 						"/swagger-resources/**", "/configuration/security")
-				.permitAll().antMatchers(HttpMethod.GET, "/api/produto/**", "/api/categoria/**").permitAll()
+				.permitAll()
 				
 				.antMatchers(HttpMethod.POST, "/api/usuario/**"	).permitAll()
 
-				.antMatchers(HttpMethod.GET, "/api/usuarioSkill/**")
+				.antMatchers(HttpMethod.GET, "/api/usuarioSkill/**", "/api/skill/**")
 				.hasAnyAuthority("USER")
 				.antMatchers(HttpMethod.POST, "/api/usuarioSkill/**")
-				.hasAuthority("USER")
+				.hasAnyAuthority("USER")
 				.antMatchers(HttpMethod.DELETE, "/api/usuarioSkill/**")
-				.hasAuthority("USER")
+				.hasAnyAuthority("USER")
 				.antMatchers(HttpMethod.PUT, "/api/usuarioSkill/**")
-				.hasAuthority("USER")
+				.hasAnyAuthority("USER")
 
 				.anyRequest().authenticated().and().httpBasic().and().sessionManagement()
 				.sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().cors();

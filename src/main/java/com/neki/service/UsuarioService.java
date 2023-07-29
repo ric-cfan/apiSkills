@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.neki.domain.Usuario;
 import com.neki.dto.CriarUsuarioDTO;
 import com.neki.dto.UsuarioDTO;
+import com.neki.dto.UsuarioResponseDTO;
 import com.neki.repository.UsuarioRepository;
 
 @Service
@@ -22,13 +23,19 @@ public class UsuarioService {
 	@Autowired
 	BCryptPasswordEncoder encoder;
 
-	public List<UsuarioDTO> findAll() {
+	public List<UsuarioResponseDTO> findAll() {
 		List<Usuario> usuarios = usuarioRepository.findAll();
-		List<UsuarioDTO> usuarioDTOs = new ArrayList<>();
+		List<UsuarioResponseDTO> usuarioDTOs = new ArrayList<>();
 		for (Usuario usuario : usuarios) {
-			usuarioDTOs.add(new UsuarioDTO(usuario));
+			usuarioDTOs.add(new UsuarioResponseDTO(usuario));
 		}
 		return usuarioDTOs;
+	}
+	
+	public UsuarioResponseDTO findByLogin(String login) {
+		Usuario usuario = usuarioRepository.findByLogin(login);
+		UsuarioResponseDTO usuarioDTO = new UsuarioResponseDTO(usuario);
+		return usuarioDTO;
 	}
 
 	public BCryptPasswordEncoder bCryptPasswordEncoder() {
@@ -41,7 +48,6 @@ public class UsuarioService {
 			throw new Exception("Senha e Confirma Senha não são iguais");
 		}
 		if (usuarioRepository.findByLogin(user.getLogin()) != null) {
-			System.out.println(user.getLogin());
 			throw new Exception("Usuário já existente");
 		}
 		Usuario usuario = new Usuario();
