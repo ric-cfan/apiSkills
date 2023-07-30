@@ -15,9 +15,9 @@ import io.jsonwebtoken.security.Keys;
 public class JwtUtil {
 
 	@Value("${auth.jwt-secret}")
-	private String jwtSecret = "EAssimQueMeuFuscaAnda_EAssimQueEleVaiParar";
+	private String jwtSecret;
 	@Value("${auth.jwt-expiration-miliseg}")
-	private Long jwtExpirationMiliseg = (long) 604800000;
+	private Long jwtExpirationMiliseg;
 
 	public String generateToken(String username) {
 		SecretKey secretKeySpec = Keys.hmacShaKeyFor(jwtSecret.getBytes());

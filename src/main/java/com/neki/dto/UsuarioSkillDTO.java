@@ -29,6 +29,17 @@ public class UsuarioSkillDTO {
 		this.usuario = usuario;
 		this.skill = skill;
 	}
+	
+	public UsuarioSkillDTO(Long id, Integer lvl, Long idUser,
+			SkillDTO skill) {
+		super();
+		this.id = id;
+		this.lvl = lvl;
+		RequestUsuarioDTO usuario = new RequestUsuarioDTO(null, null);
+		usuario.setId(idUser);
+		this.usuario = usuario;
+		this.skill = skill;
+	}
 
 	public UsuarioSkillDTO(UsuarioSkill skill) {
 		super();
