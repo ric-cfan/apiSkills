@@ -63,7 +63,7 @@ public class ConfigSeguranca extends WebSecurityConfigurerAdapter {
 	@Bean
 	CorsConfigurationSource corsConfigurationSource() {
 		CorsConfiguration corsConfiguration = new CorsConfiguration();
-		corsConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:3000/"));
+		corsConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:3000/", "http://localhost:19006"));
 		corsConfiguration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD"));
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 		source.registerCorsConfiguration("/**", corsConfiguration.applyPermitDefaultValues());
