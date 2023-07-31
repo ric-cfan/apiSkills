@@ -17,7 +17,7 @@ public class SwaggerConfig {
 	public Docket api() {
 		return new Docket(DocumentationType.SWAGGER_2)
 				.select()
-				.apis(RequestHandlerSelectors.basePackage("org.serratec"))
+				.apis(RequestHandlerSelectors.basePackage("com.neki"))
 				.paths(PathSelectors.any())
 				.build()
 				
@@ -28,12 +28,12 @@ public class SwaggerConfig {
 	
 	private ApiInfo apiInfo() {
 		ApiInfo apiInfo = new ApiInfoBuilder() 
-				.title("Ecommerce API RESTFul")
-				.description("API desenvolvida para o trabalho final da disciplina de API RESTFul no curso do Serratec")
+				.title("API Skills")
+				.description("API desenvolvida para o projeto de selacao da Neki")
 				.license("Apache License Version 2.0")
 				.licenseUrl("https://www.apache.org/license/LICENSE-2,0")
 				.version("1.0.0")
-				.contact(new Contact("Grupo 4", "https://www.serratec.org.br", "ecommercegrupo4@gmail.com"))
+				.contact(new Contact("Ricardo", "https://www.serratec.org.br", "ric_cfan@hotmail.com"))
 				.build();
 		return apiInfo;
 	}
